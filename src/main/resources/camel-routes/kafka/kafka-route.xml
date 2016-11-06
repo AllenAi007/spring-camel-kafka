@@ -1,0 +1,28 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+    <route id="route-kafka-producer">
+        <description>
+            Read file and send to kafka topic
+        </description>
+        <from uri="file:{{kafka.input}}?move={{kafka.archive}}"/>
+        <log message="Got message from file : \n ${in.body}"/>
+        <log message="Sending to kafka"/>
+        <setHeader headerName="kafka.PARTITION_KEY">
+            <constant>0</constant>
+        </setHeader>
+        <setHeader headerName="kafka.KEY">
+            <constant>1</constant>
+        </setHeader>
+        <convertBodyTo type="java.lang.String" charset="utf-8"/>
+        <to uri="kafka:{{kafka.server}}?topic={{kafka.topic}}&amp;retries=2"/>
+        <log message="Sent successfully!"/>
+    </route>
+
+    <route id="route-kafka-consumer">
+        <description>
+            Consume message from kafka and print it out
+        </description>
+        <from uri="kafka:{{kafka.server}}?topic={{kafka.topic}}&amp;groupId=testing&amp;autoOffsetReset=earliest&amp;consumersCount=1"/>
+        <log message="Got message from kafka \n ${in.body}"/>
+    </route>
+</routes>

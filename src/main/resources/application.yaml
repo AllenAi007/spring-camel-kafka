@@ -1,0 +1,37 @@
+project:
+  root:
+    path: /myprojects/kafka/
+
+service:
+  id: kafka
+
+logging:
+  file: ${project.root.path}/logs/${service.id}.log
+  level:
+    root: INFO
+    ai: DEBUG
+
+camel:
+  springboot:
+    main-run-controller: true
+    xmlRoutes: classpath:camel-routes/${service.id}/*.xml
+
+---
+spring:
+  profiles: local
+
+kafka:
+  server: localhost:9092
+  topic: test
+  input: ${project.root.path}/input/
+  archive: ${project.root.path}/archive/
+
+---
+spring:
+  profiles: dev
+
+kafka:
+  server: localhost:9092
+  topic: test
+  input: ${project.root.path}/input/
+  achive: ${project.root.path}/archive/

@@ -11,3 +11,9 @@ Pre-installation
   Zookeeper
   Apache Kafka
   
+
+KAFKA related command
+1. Start Zookeeper
+%KAFKA_HOME%\bin\windows\zookeeper-server-start.bat %KAFKA_HOME%\config\zookeeper.properties
+2. Start Kafka
+%KAFKA_HOME%\bin\windows\kafka-server-start.bat %KAFKA_HOME%\config\server.properties
