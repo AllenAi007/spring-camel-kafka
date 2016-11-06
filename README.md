@@ -2,7 +2,7 @@
 
 	Kafka is high speed messaging bus, can build up ESB(Enterprise Service Bus) based one it.
 
-## Key techknowledges are used.
+## Key techknowledges
     Java (1.8)
     Spring Boot (1.4.1.RELEASE) 
     Apache Camel (2.18.0)  
@@ -12,10 +12,14 @@
     JDK 8+   
     Zookeeper 
     Apache Kafka 
-  
 
 ## KAFKA related command 
 ###    1. Start Zookeeper
     %KAFKA_HOME%\bin\windows\zookeeper-server-start.bat %KAFKA_HOME%\config\zookeeper.properties
 ###    2. Start Kafka
     %KAFKA_HOME%\bin\windows\kafka-server-start.bat %KAFKA_HOME%\config\server.properties
+
+## How to run
+	git clone https://github.com/AllenAi007/spring-camel-kafka.git
+	cd spring-camel-kafka
+	mvn spring-boot:run --spring.profiles.active=local
