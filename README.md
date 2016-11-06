@@ -22,4 +22,4 @@
 ## How to run
 	git clone https://github.com/AllenAi007/spring-camel-kafka.git
 	cd spring-camel-kafka
-	mvn spring-boot:run --spring.profiles.active=local
+	mvn spring-boot:run
