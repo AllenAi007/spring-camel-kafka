@@ -25,4 +25,5 @@
         <from uri="kafka:{{kafka.server}}?topic={{kafka.topic}}&amp;groupId=testing&amp;autoOffsetReset=earliest&amp;consumersCount=1"/>
         <log message="Got message from kafka \n ${in.body}"/>
     </route>
+
 </routes>
