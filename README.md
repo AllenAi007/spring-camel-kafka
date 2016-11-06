@@ -23,3 +23,21 @@
 	git clone https://github.com/AllenAi007/spring-camel-kafka.git
 	cd spring-camel-kafka
 	mvn spring-boot:run
+
+
+## Command on windows 
+
+	#create a topic 
+	%KAFKA_HOME%\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 3 --partitions 3 --topic test
+
+	#list topics
+	%KAFKA_HOME%\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+	#discribe topi info
+	%KAFKA_HOME%\bin\windows\kafka-topics.bat --describe --zookeeper localhost:2181 --topic my-replicated-topic
+
+	# delete a topic 
+	%KAFKA_HOME%\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --delete --topic test
+
+	# send message 
+	%KAFKA_HOME%\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic test
