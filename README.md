@@ -1,6 +1,8 @@
 # spring-camel-kafka
 
 	Kafka is high speed messaging bus, can build up ESB(Enterprise Service Bus) based one it.
+	Camel is the implementation for EIP(Enterprice Integration Partten), e.g. routing, transfer, enrich
+	Spring boot provide the rapid application development
 
 ## Key techknowledges
     Java (1.8)
